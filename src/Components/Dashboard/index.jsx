@@ -16,7 +16,8 @@ import styles from './Dashboard.module.css';
 import { Icon } from "@iconify/react";
 
 import Chart from './Chart';
-import ViewInteraction from './ViewInteraction';
+import ViewInteraction from '../Workspace/BarChart';
+import BarChart from '../Workspace/BarChart';
 
 
 function Dashboard() {
@@ -95,9 +96,6 @@ function Dashboard() {
                 {/******************** Chart ********************/}
                 <Chart />
                 {/******************** View Interaction ********************/}
-                <Box mt={2}>
-                    <ViewInteraction />
-                </Box>
             </Box>
             {/* <StudentDashboard /> */}
         </>

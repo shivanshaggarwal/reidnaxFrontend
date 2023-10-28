@@ -10,7 +10,7 @@ import ForgetPassword from '../Components/ForgetPassword';
 import Dashboard from '../Components/Dashboard';
 import Profile from '../Components/Profile';
 import PageNotFound from '../Components/PageNotFound';
-import Workspace from '../Components/Workspace/WhenNoInteraction';
+import Workspace from '../Components/Workspace';
 
 
 const Router = () => {

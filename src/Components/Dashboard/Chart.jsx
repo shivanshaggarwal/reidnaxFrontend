@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Box,
     Typography,
@@ -25,107 +25,91 @@ import {
 } from 'chart.js';
 
 import { Bar } from 'react-chartjs-2';
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
-
-const options = {
-    indexAxis: 'y',
-    elements: {
-        bar: {
-            borderWidth: 2,
-        },
-    },
-    responsive: true,
-    plugins: {
-        legend: {
-            display: true,
-            position: 'top',
-        },
-        title: {
-            display: false,
-        },
-    },
-    scales: {
-        x: {
-            ticks: {
-                beginAtZero: true,
-                callback: function (value) {
-                    return value + '%';
-                }
-            }
-        }
-    },
-};
-
-const labels = [
-    'Sales',
-    'Marketing',
-    'Human Resource ',
-    'Strategy',
-    'Operations',
-    'General Interview'
-];
-
-const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Interactions So Far',
-            data: [12, 19, 3, 5, 2, 3],
-            borderColor: 'rgb(25, 118, 210)',
-            backgroundColor: 'rgba(25, 118, 210, 0.5)',
-        },
-    ],
-};
-
+import axios from 'axios';
 
 const Chart = () => {
+    ChartJS.register(
+        CategoryScale,
+        LinearScale,
+        BarElement,
+        Title,
+        Tooltip,
+        Legend
+    );
+
+    const options = {
+        indexAxis: 'y',
+        elements: {
+            bar: {
+                borderWidth: 2,
+            },
+        },
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top',
+            },
+            title: {
+                display: false,
+            },
+        },
+        scales: {
+            x: {
+                ticks: {
+                    beginAtZero: true,
+                    callback: function (value) {
+                        return value + '%';
+                    }
+                }
+            }
+        },
+    };
+
+    const [chartData, setChartData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchData();
+    }, []); // Empty dependency array ensures that useEffect runs only once (on mount)
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/barchart'); // Replace with your API endpoint
+            console.log(response.data, "jded.....")
+            setChartData(response.data);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const labels = chartData.map((item) => item.interactionTitle);
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Bar Chart',
+                data: chartData.map((item) => item.percentage),
+                borderColor: 'rgb(25, 118, 210)',
+                backgroundColor: 'rgba(25, 118, 210, 0.5)',
+            },
+        ],
+    };
+
     return (
         <>
             <Box mt={3}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={12} md={12} lg={5} sx={{ margin: "auto" }}>
-                        <Card sx={{ backgroundColor: "#DFFCF0", marginBottom: "1rem" }}>
-                            <CardContent sx={{ color: "#1F845A" }}>
-                                <Avatar variant="circle" sx={{ backgroundColor: "#1F845A" }}>
-                                    <PeopleAltIcon />
-                                </Avatar>
-
-                                <Typography mt={3} variant="h4" component="div">
-                                    Total Candidates
-                                </Typography>
-                                <Typography variant="h3" component="div">
-                                    <CountUp end={100} />
-                                </Typography>
-                            </CardContent>
-                        </Card>
-
-                        <Card sx={{ backgroundColor: "#FFEDEB" }}>
-                            <CardContent sx={{ color: "#CA3521" }}>
-                                <Avatar variant="circle" sx={{ backgroundColor: "#CA3521" }}>
-                                    <TuneIcon />
-                                </Avatar>
-                                <Typography mt={3} variant="h4" component="div">
-                                    Total Interactions
-                                </Typography>
-                                <Typography variant="h3" component="div">
-                                    <CountUp end={100} />
-                                </Typography>
-                            </CardContent>
-                        </Card>
+                    <Grid item xs={12} sm={12} md={12} lg={12} sx={{ margin: "auto" }}>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={12} lg={7} sx={{ margin: "auto" }}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} sx={{ margin: "auto" }}>
                         <Card elevation={2}>
                             <CardContent>
                                 <Typography mb={3} variant="h6">
-                                    Our Interaction Library : <span style={{ color: "rgb(25, 118, 210)" }}>Interactions counts so far Nov 2022</span>
+                                    Our Chart : <span style={{ color: "rgb(25, 118, 210)" }}>Data Counts</span>
                                 </Typography>
                                 <Bar options={options} data={data} />
                             </CardContent>

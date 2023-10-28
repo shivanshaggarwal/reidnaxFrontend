@@ -24,6 +24,7 @@ import noPreview from '../../assets/Images/NoPreview.svg';
 import Moment from 'moment';
 
 import { useNavigate } from 'react-router-dom';
+import BarChart from './BarChart';
 
 const Workspace = () => {
 
@@ -35,27 +36,17 @@ const Workspace = () => {
     return (
         <>
             <Box>
-                <Box className={styles.header}>
+                <Box className={styles.header} mb={2}>
                     <Typography variant='h5'>
-                        My Workspace
+                        My Chart Space
                     </Typography>
                     <Typography sx={{ fontWeight: "bold", display: "flex", flexWrap: "wrap", float: "right", fontSize: { xs: "13px", sm: "16px", md: "18px" }, textAlign: "end" }} color="secondary" variant='h6'>
                         {date}, {weekday}
                     </Typography>
                 </Box>
-
-                <Box mt={2} mb={2}>
-                    <Button size='small' variant="contained" className={styles.createButton} onClick={() => navigate('/account/internal-bot')}><AddIcon /> Create interaction</Button>
-                </Box>
-
                 <Divider />
-
-                <Box mt={5} className={styles.container}>
-                    <img className={styles.noPreviewImg} src={noPreview} alt="no preview" />
-                    <Typography mt={3} variant='h5'>Come on in, <span className={styles.name}>Bhavya</span></Typography>
-                    <Typography variant='subtitle1'>No interaction created yet! Let's get started</Typography>
-                    <Typography mb={2} variant='subtitle1'>to create something special.</Typography>
-                    <Button size='small' variant="contained" className={styles.createButton} onClick={() => navigate('/account/internal-bot')}><AddIcon /> Create interaction</Button>
+                <Box mt={2}>
+                    <BarChart />
                 </Box>
             </Box>
         </>

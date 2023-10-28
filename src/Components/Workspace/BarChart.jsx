@@ -10,13 +10,29 @@ import {
 import LoadAnimation from '../LoadAnimation/index';
 
 import MaterialTable from "@material-table/core";
+import axios from 'axios';
 
 // import CountUp from "react-countup";
 
-const ViewInteraction = () => {
+const BarChart = () => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const [loading, setLoading] = useState(false);
-    const [rowData, setRowData] = useState(null);
+    useEffect(() => {
+        fetchData();
+    }, []); // Empty dependency array ensures that useEffect runs only once (on mount)
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/barchart'); // Replace with your API endpoint
+            console.log(response, "lmldwklfn.....")
+            setData(response.data);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
         setLoading(true);
@@ -26,30 +42,13 @@ const ViewInteraction = () => {
     }, []);
 
     const columns = [
-        { title: "Test ID", field: "testID", width: "10rem" },
+        { title: "S.No", field: "serialNo", width: "10rem" },
         { title: "Interaction Title", field: "interactionTitle", width: "12rem" },
-        { title: "Track", field: "track", width: "10rem" },
-        {
-            title: "Interaction Bot", width: "12rem",
-            render: (row) => (
-                <Button
-                    size='small'
-                    variant='contained'
-                    onClick={() => navigate("/form/invitation")}
-                >
-                    View
-                </Button>
-            )
-        },
+        { title: "Percentage", field: "percentage", width: "10rem" }
     ];
 
-    const interactionData = [
-        { testID: "753984", interactionTitle: "Frontend Developer", track: "New Grad." },
-        { testID: "289423", interactionTitle: "Sales Executive", track: "Sales" },
-        { testID: "428964", interactionTitle: "Backend Developer", track: "Service" },
-        { testID: "775698", interactionTitle: "Android Developer", track: "New Grad." },
-        { testID: "587123", interactionTitle: "Fullstack Developer", track: "Others" },
-    ]
+    const interactionData = data;
+
 
     const navigate = useNavigate();
 
@@ -105,4 +104,4 @@ const ViewInteraction = () => {
     )
 }
 
-export default ViewInteraction;
+export default BarChart;
