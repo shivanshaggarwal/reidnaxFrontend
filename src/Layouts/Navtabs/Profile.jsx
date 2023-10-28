@@ -126,43 +126,6 @@ const Profile = () => {
         </MenuItem>
         <Divider sx={{ my: 1 }} />
 
-        <MenuItem onClick={() => { navigate('/account/profile'); handleClose(); }} disableRipple>
-          <Box
-            component={Icon}
-            icon={personFill}
-            sx={{
-              mr: 2,
-              width: 24,
-              height: 24
-            }}
-          />
-
-          Profile
-        </MenuItem>
-        <MenuItem onClick={() => { navigate('/account/analytics'); handleClose(); }} disableRipple>
-          <Box
-            component={Icon}
-            icon={roundDashboard}
-            sx={{
-              mr: 2,
-              width: 24,
-              height: 24
-            }}
-          />
-          Analytics
-        </MenuItem>
-        <MenuItem onClick={() => { navigate("/account/workspace"); handleClose(); }} disableRipple>
-          <Box
-            component={Icon}
-            icon={roundWorkspaces}
-            sx={{
-              mr: 2,
-              width: 24,
-              height: 24
-            }}
-          />
-          Workspace
-        </MenuItem>
         <Box sx={{ p: 2, pt: 2 }}>
           <Button
             size="small"

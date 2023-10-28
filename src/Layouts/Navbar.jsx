@@ -10,6 +10,7 @@ import {
 } from '@mui/material'
 
 import MenuIcon from '@mui/icons-material/Menu';
+import Profile from '../Components/Profile';
 
 const drawerWidth = 240;
 
