@@ -80,22 +80,6 @@ function Sidebar({ handleDrawerToggle, mobileOpen }) {
           </Stack>
         </Box>
       </Box>
-      <List>
-        {sideBarMenu.map((item, index) => (
-          <ListItem key={index}
-            disablePadding
-            className={location.pathname === item.link ? classes.sideBarActive : null}
-            onClick={() => { navigate(item.link); handleDrawerToggle(item.link); }}
-          >
-            <ListItemButton>
-              <ListItemIcon className={location.pathname === item.link ? classes.sideBarActiveIcon : null}>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText className={location.pathname === item.label ? classes.sideBarActive : null} primary={item.label} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
 
     </div>
   );

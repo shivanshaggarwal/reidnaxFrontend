@@ -11,8 +11,6 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 
-import Profile from './Navtabs/Profile';
-
 const drawerWidth = 240;
 
 const Navbar = ({ handleDrawerToggle }) => {
