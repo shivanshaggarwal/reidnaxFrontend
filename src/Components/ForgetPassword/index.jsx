@@ -19,21 +19,13 @@ import LoadingScreen from '../LoadingScreen';
 
 // Images
 import forgetPasswordImg from '../../assets/Images/forgotPassword.svg';
-import logo from '../../assets/Images/coachBotLogo.svg';
+
 
 // Validation
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as Yup from 'yup';
 
-// Icons
-// import { Icon } from '@iconify/react';
-// import eyeFill from '@iconify/icons-eva/eye-fill';
-// import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
-
 const ForgetPassword = () => {
-
-    // const [showPassword, setShowPassword] = useState(false);
-    // const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const forgetPasswordSchema = Yup.object().shape({
@@ -98,7 +90,7 @@ const ForgetPassword = () => {
                         </Stack>
                         {/***************************** Lock Icon *****************************/}
                         <Stack alignItems='center' spacing={1}>
-                            <img src={logo} alt="coach-cloud" style={{ width: '50%' }} />
+                            
                             <Typography variant='h4' sx={{ fontWeight: 'bold', fontFamily: "Public Sans,sans-serif", color: '#971b8b', textAlign: "center" }}>Forgot Password</Typography>
                         </Stack>
 
