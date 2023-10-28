@@ -27,7 +27,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
-const Chart = () => {
+const Chart = (props) => {
     ChartJS.register(
         CategoryScale,
         LinearScale,
@@ -66,33 +66,15 @@ const Chart = () => {
         },
     };
 
-    const [chartData, setChartData] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetchData();
-    }, []); // Empty dependency array ensures that useEffect runs only once (on mount)
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:5000/api/barchart'); // Replace with your API endpoint
-            console.log(response.data, "jded.....")
-            setChartData(response.data);
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const labels = chartData.map((item) => item.interactionTitle);
+    // Empty dependency array ensures that useEffect runs only once (on mount)
+    const labels = props.chartData.map((item) => item.interactionTitle);
 
     const data = {
         labels,
         datasets: [
             {
                 label: 'Bar Chart',
-                data: chartData.map((item) => item.percentage),
+                data: props.chartData.map((item) => Number(item.percentage)),
                 borderColor: 'rgb(25, 118, 210)',
                 backgroundColor: 'rgba(25, 118, 210, 0.5)',
             },

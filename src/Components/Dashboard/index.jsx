@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Box,
     Typography,
@@ -18,9 +18,21 @@ import { Icon } from "@iconify/react";
 import Chart from './Chart';
 import ViewInteraction from '../Workspace/BarChart';
 import BarChart from '../Workspace/BarChart';
+import axios from 'axios';
 
 
 function Dashboard() {
+    const [chartData, setChartData] = useState(null);
+    useEffect(() => {
+        fetchData();
+    }, []); // Empty dependency array ensures that useEffect runs only once (on mount)
+
+    const fetchData = async () => {
+        const response = await axios.get('http://localhost:5000/api/barchart'); // Replace with your API endpoint
+        // console.log(response.data, "jded.....")
+        setChartData(response.data);
+    }
+
     return (
         <>
             <Box>
@@ -94,7 +106,7 @@ function Dashboard() {
                 </Grid>
                 <Divider sx={{ mt: 3, mb: 2 }} />
                 {/******************** Chart ********************/}
-                <Chart />
+                <Chart chartData={chartData} />
                 {/******************** View Interaction ********************/}
             </Box>
             {/* <StudentDashboard /> */}
