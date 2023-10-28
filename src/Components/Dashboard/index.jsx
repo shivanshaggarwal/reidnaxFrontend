@@ -106,7 +106,7 @@ function Dashboard() {
                 </Grid>
                 <Divider sx={{ mt: 3, mb: 2 }} />
                 {/******************** Chart ********************/}
-                <Chart chartData={chartData} />
+                {chartData && <Chart chartData={chartData} />}
                 {/******************** View Interaction ********************/}
             </Box>
             {/* <StudentDashboard /> */}
