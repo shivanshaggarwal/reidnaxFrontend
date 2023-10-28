@@ -16,8 +16,7 @@ import styles from './Analytics.module.css';
 import { Icon } from "@iconify/react";
 
 import Chart from './Chart';
-import ViewInteraction from '../Data/BarChart';
-import BarChart from '../Data/BarChart';
+
 import axios from 'axios';
 
 

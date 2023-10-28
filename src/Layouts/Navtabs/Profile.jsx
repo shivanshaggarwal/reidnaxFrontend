@@ -13,12 +13,7 @@ import {
 
 import { styled, alpha } from "@mui/material/styles";
 
-// Icons
-import { Icon } from "@iconify/react";
 
-import roundDashboard from '@iconify/icons-ic/round-dashboard';
-import personFill from '@iconify/icons-eva/person-fill';
-import roundWorkspaces from '@iconify/icons-ic/round-workspaces';
 
 import { useNavigate } from "react-router-dom";
 // import defaultAvatar from "../../../assets/Images/defaultAvatar.png";

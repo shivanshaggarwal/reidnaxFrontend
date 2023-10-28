@@ -2,13 +2,6 @@ import React from 'react';
 import {
     Box,
     Typography,
-    // Avatar,
-    // Grid,
-    // Card,
-    // CardActionArea,
-    // CardContent,
-    // CardMedia,
-    // CardActions,
     Button,
     Divider
 } from '@mui/material';
@@ -16,10 +9,6 @@ import {
 import styles from './Data.module.css';
 
 // Icons
-import AddIcon from '@mui/icons-material/Add';
-
-
-import noPreview from '../../assets/Images/NoPreview.svg';
 
 import Moment from 'moment';
 
@@ -31,7 +20,7 @@ const Data = () => {
     const date = Moment().format("Do MMM YYYY");
     const weekday = Moment().format("dddd");
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <>

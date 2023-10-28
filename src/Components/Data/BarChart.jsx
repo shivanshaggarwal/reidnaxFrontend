@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import {
     Box,
     Typography,
-    Button,
 } from "@mui/material";
 
 import LoadAnimation from '../LoadAnimation/index';
@@ -50,7 +49,7 @@ const BarChart = () => {
     const interactionData = data;
 
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <>

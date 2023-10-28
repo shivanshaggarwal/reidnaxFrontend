@@ -20,11 +20,7 @@ import defaultAvatar from '../assets/Images/defaultAvatar.png';
 // Icons
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
-import GroupIcon from '@mui/icons-material/Group';
-import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import GradingIcon from '@mui/icons-material/Grading';
-import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+
 
 // Styles
 import { makeStyles } from '@mui/styles';
@@ -80,6 +76,22 @@ function Sidebar({ handleDrawerToggle, mobileOpen }) {
           </Stack>
         </Box>
       </Box>
+      <List>
+        {sideBarMenu.map((item, index) => (
+          <ListItem key={index}
+            disablePadding
+            className={location.pathname === item.link ? classes.sideBarActive : null}
+            onClick={() => { navigate(item.link); handleDrawerToggle(item.link); }}
+          >
+            <ListItemButton>
+              <ListItemIcon className={location.pathname === item.link ? classes.sideBarActiveIcon : null}>
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText className={location.pathname === item.label ? classes.sideBarActive : null} primary={item.label} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
 
     </div>
   );

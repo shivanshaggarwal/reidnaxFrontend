@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
     Box,
     Typography,
     Grid,
     Card,
-    Avatar,
     CardContent,
 } from '@mui/material';
 
-import CountUp from "react-countup";
 
-// Icons
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import TuneIcon from '@mui/icons-material/Tune';
+
 
 import {
     Chart as ChartJS,
@@ -25,7 +21,7 @@ import {
 } from 'chart.js';
 
 import { Bar } from 'react-chartjs-2';
-import axios from 'axios';
+
 
 const Chart = (props) => {
     ChartJS.register(
