@@ -10,18 +10,18 @@ import {
     Divider,
 } from "@mui/material";
 
-import styles from './Dashboard.module.css';
+import styles from './Analytics.module.css';
 
 // Icon
 import { Icon } from "@iconify/react";
 
 import Chart from './Chart';
-import ViewInteraction from '../Workspace/BarChart';
-import BarChart from '../Workspace/BarChart';
+import ViewInteraction from '../Data/BarChart';
+import BarChart from '../Data/BarChart';
 import axios from 'axios';
 
 
-function Dashboard() {
+function Analytics() {
     const [chartData, setChartData] = useState(null);
     useEffect(() => {
         fetchData();
@@ -40,10 +40,10 @@ function Dashboard() {
                     <Avatar variant="rounded" className={styles.avatar}>
                         <Icon
                             icon="ic:sharp-dashboard-customize"
-                            className={styles.dashboardIcon}
+                            className={styles.analyticsIcon}
                         />
                     </Avatar>
-                    Dashboard
+                    Analytics
                 </Typography>
 
                 <Grid mt={2} container spacing={2}>
@@ -55,7 +55,7 @@ function Dashboard() {
                                         1
                                     </Avatar>
                                     <Typography variant="subtitle1" component="div">
-                                        Create interactions via the dashboard and distribute them to your participants.
+                                        Create interactions via the analytics and distribute them to your participants.
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -109,9 +109,9 @@ function Dashboard() {
                 {chartData && <Chart chartData={chartData} />}
                 {/******************** View Interaction ********************/}
             </Box>
-            {/* <StudentDashboard /> */}
+            {/* <Studentanalytics /> */}
         </>
     )
 }
 
-export default Dashboard;
+export default Analytics;

@@ -54,14 +54,14 @@ function Sidebar({ handleDrawerToggle, mobileOpen }) {
 
   const sideBarMenu = [
     {
-      label: 'Dashboard',
+      label: 'Analytics',
       icon: <DashboardIcon />,
-      link: '/account/dashboard'
+      link: '/account/analytics'
     },
     {
-      label: 'My Workspace',
+      label: 'Data',
       icon: <WorkspacesIcon />,
-      link: '/account/workspace'
+      link: '/account/data'
     },
 
   ]

@@ -78,7 +78,7 @@ const SignUp = () => {
             try {
                 setLoading(true);
                 setLoading(false);
-                navigate('/dashboard');
+                navigate('/analytics');
                 resetForm();
             } catch (error) {
                 setErrors({ afterSubmit: error.message });

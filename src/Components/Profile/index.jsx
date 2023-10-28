@@ -63,7 +63,7 @@ const Profile = () => {
         validationSchema: ProfileSchema,
         onSubmit: async (values, { setErrors, resetForm }) => {
             try {
-                navigate('/dashboard');
+                navigate('/analytics');
                 resetForm();
             } catch (error) {
                 setErrors({ afterSubmit: error.message });

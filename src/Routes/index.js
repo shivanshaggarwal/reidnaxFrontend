@@ -7,10 +7,9 @@ import DashboardLayout from "../Layouts";
 import Login from '../Components/Login';
 import SignUp from '../Components/SignUp';
 import ForgetPassword from '../Components/ForgetPassword';
-import Dashboard from '../Components/Dashboard';
-import Profile from '../Components/Profile';
 import PageNotFound from '../Components/PageNotFound';
-import Workspace from '../Components/Workspace';
+import Analytics from '../Components/Analytics';
+import Data from '../Components/Data';
 
 
 const Router = () => {
@@ -49,14 +48,14 @@ const Router = () => {
             path: 'account',
             element: <DashboardLayout />,
             children: [
-                { path: "", element: <Navigate to="/account/dashboard" /> },
-                { path: "dashboard", element: <Dashboard /> },
-                { path: "workspace", element: <Workspace /> },
+                { path: "", element: <Navigate to="/account/analytics" /> },
+                { path: "analytics", element: <Analytics /> },
+                { path: "data", element: <Data /> },
             ]
         },
         {
-            path: 'dashboard',
-            element: <Navigate to="/account/dashboard" />
+            path: 'analytics',
+            element: <Navigate to="/account/analytics" />
         },
         {
             path: '*',

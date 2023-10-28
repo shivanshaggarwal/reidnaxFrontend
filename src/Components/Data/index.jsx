@@ -13,7 +13,7 @@ import {
     Divider
 } from '@mui/material';
 
-import styles from './Workspace.module.css';
+import styles from './Data.module.css';
 
 // Icons
 import AddIcon from '@mui/icons-material/Add';
@@ -26,7 +26,7 @@ import Moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 import BarChart from './BarChart';
 
-const Workspace = () => {
+const Data = () => {
 
     const date = Moment().format("Do MMM YYYY");
     const weekday = Moment().format("dddd");
@@ -53,4 +53,4 @@ const Workspace = () => {
     )
 }
 
-export default Workspace;
+export default Data;

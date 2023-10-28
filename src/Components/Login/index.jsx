@@ -63,7 +63,7 @@ const Login = () => {
                 setLoading(true);
                 // const res = await login(values);
                 setLoading(false);
-                navigate('/dashboard');
+                navigate('/analytics');
                 resetForm();
             } catch (error) {
                 setErrors({ afterSubmit: error.message });

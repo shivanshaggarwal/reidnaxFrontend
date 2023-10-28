@@ -139,7 +139,7 @@ const Profile = () => {
 
           Profile
         </MenuItem>
-        <MenuItem onClick={() => { navigate('/account/dashboard'); handleClose(); }} disableRipple>
+        <MenuItem onClick={() => { navigate('/account/analytics'); handleClose(); }} disableRipple>
           <Box
             component={Icon}
             icon={roundDashboard}
@@ -149,7 +149,7 @@ const Profile = () => {
               height: 24
             }}
           />
-          Dashboard
+          Analytics
         </MenuItem>
         <MenuItem onClick={() => { navigate("/account/workspace"); handleClose(); }} disableRipple>
           <Box
