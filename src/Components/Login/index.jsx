@@ -27,7 +27,7 @@ import LoadingScreen from '../LoadingScreen';
 
 // Images
 import loginImg from '../../assets/Images/login.svg';
-import logo from '../../assets/Images/coachBotLogo.svg';
+
 
 // Validation
 import { useFormik, FormikProvider, Form } from 'formik';
@@ -102,9 +102,7 @@ const Login = () => {
                                 </Box>
                             }
                         </Stack>
-                        {/***************************** Logo *****************************/}
                         <Stack alignItems='center' spacing={1}>
-                            <img src={logo} alt="coach-cloud" style={{ width: '50%' }} />
                             <Typography variant='h4' sx={{ fontWeight: 'bold', fontFamily: "Public Sans,sans-serif", color: '#971b8b' }}>Log In </Typography>
                         </Stack>
 

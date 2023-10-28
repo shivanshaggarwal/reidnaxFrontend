@@ -42,10 +42,6 @@ const Navbar = ({ handleDrawerToggle }) => {
             display: 'flex',
             justifyContent: 'space-between'
           }}>
-            {/* Left Box */}
-            {/* <Stack direction='row' justifyContent='center' alignItems='center' mr={1}>
-              <img src='/brand.png' alt="app-logo" width='150px' />
-            </Stack> */}
 
             {/* Right Box */}
             <Stack direction='row' style={{ display: "flex", justifyContent: "end", marginLeft: "auto" }}>
